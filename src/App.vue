@@ -1,20 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <TheHeader/>
+    <p>&nbsp;</p>
+    <div class="text-bg">
+      <router-view/>
     </div>
-    <router-view/>
+    <p>&nbsp;</p>
+    <TheFooter/>
   </div>
 </template>
 
+<script>
+// @ is an alias to /src
+import TheHeader from '@/components/TheHeader.vue'
+import TheFooter from '@/components/TheFooter.vue'
+
+export default {
+  name: 'home',
+  components: {
+    TheHeader,
+    TheFooter
+  }
+}
+</script>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body { 
+  margin:0;
+  padding:0;
+  background: url(assets/CRbackground.jpg) no-repeat center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  overflow-x: hidden;
 }
 #nav {
   padding: 30px;
@@ -27,5 +43,11 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.text-bg {
+  background-color: #fff;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 5px;
 }
 </style>
